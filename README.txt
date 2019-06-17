@@ -1,37 +1,49 @@
 Proyecto-Redes IvanBarranco
 
-empleado	(nombre, apellido, sucursal, turno)
-falla	(empleadoid, hora, causa, perdida)
+sensor	(type, location)
+falla	(sensorid, hora, valorlectura)
 
 
-empleado
+sensor
 {
     id: 'number',
-    name: 'string',
-    lastname: 'string',
-    sucursal: 'string',
-    turno: 'string'
+    type: 'string',
+    location: 'string'
 }
+// Ejemplo:
+{
+  id: 1,
+  type: "Temperatura",
+  location: "Hectarea 1"
+}
+//
 
-Falla
+lectura
 {
     id: 'number',
-    empleadoid: 'number',
+    sensorid: 'number',
     hora: 'string',
-    causa: 'string',
-    perdida: 'number'
+    valorlectura: 'string'
 }
+// Ejemplo
+{
+    id: 1,
+    sensorid: 1,
+    hora: "10:30",
+    valorlectura: "74.5"
+}
+//
 
-GET /empleados		//lista de empleados
-GET /empleados/:id	//un empleado
-POST /empleados		//insertar un empleado
-PUT /empleados/:id	//actulizar empleado
-DELETE /empleado/:id	//borrar empleado
+GET /sensores		      //lista de Sensores Registrados
+GET /sensores/:id	    //Consulta de un Sensor Especifico
+POST /sensores		    //Insertar un Sensor
+PUT /sensores/:id	    //Actualizar un Sensor
+DELETE /sensores/:id	//Eliminar un Sensor
 
-GET /empleado/:id/fallas	//lista de fallas del empleado
+GET /sensor/:id/lecturas	//Lista de Lecturas de los Sensores
 
-GET /fallas		//lista de fallas
-GET /fallas/:id		//una falla
-POST /fallas		//insertar falla
-PUT /fallas/:id		//actualizar falla
-DELETE /fallas/:id	//borrar falla
+GET /lecturas		        //Lista de Lecturas
+GET /lecturas/:id		    //Consult de una Lectura Especifica
+POST /lecturas		      //Insertar una Lectura
+PUT /lecturas/:id		    //Actualizar una Lectura
+DELETE /lecturas/:id	  //Elimina una Lectura
